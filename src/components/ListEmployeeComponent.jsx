@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 function ListEmployeeComponent() {
 
     const[employees,setEmployees] = useState([])
+    //useEffect runs only once at the initial rendering of this component
     useEffect(()=>{
       EmployeeService.getAllEmployees().then((response)=>{
         setEmployees(response.data)
@@ -39,6 +40,9 @@ function ListEmployeeComponent() {
                   <Link 
                   className='border border-solid border-black bg-blue-600 my-2 p-[4px] text-black font-bold rounded-md'
                   to={`/edit-employee/${employee.id}`}> Update </Link>
+                  <Link 
+                  className='border border-solid border-black bg-blue-600 my-2 p-[4px] text-black font-bold rounded-md'
+                  to={`/delete-employee/${employee.id}`}> Delete </Link>
                 </td>
               </tr>
             )
