@@ -20,5 +20,10 @@ class EmployeeService{
      updateEmployee(id,employee){
         return axios.put(`http://localhost:8080/api/employees/`+id,employee)
      }
+
+     deleteEmployee(id){
+        return axios.delete('http://localhost:8080/api/employees/'+id)
+     }
+
     }
 export default new EmployeeService();

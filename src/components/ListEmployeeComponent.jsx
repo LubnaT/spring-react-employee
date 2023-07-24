@@ -7,14 +7,25 @@ function ListEmployeeComponent() {
     const[employees,setEmployees] = useState([])
     //useEffect runs only once at the initial rendering of this component
     useEffect(()=>{
-      EmployeeService.getAllEmployees().then((response)=>{
-        setEmployees(response.data)
-        console.log(response.data);
-        }).catch((error)=>{
-          console.log(error);
-      })
-
+      getAllEmployee();
     }, [])
+
+    const getAllEmployee=()=>{
+      EmployeeService.getAllEmployees().then((response)=>{
+      setEmployees(response.data)
+      console.log(response.data);
+      }).catch((error)=>{
+        console.log(error);
+    })
+    }
+
+    const deleteEmployee=(employeeid)=>{
+      EmployeeService.deleteEmployee(employeeid).then((response)=>{
+        getAllEmployee();
+      }).catch((error)=>{
+              console.log(error);
+      })
+    }
   return (
     <div className='container'>
       <h2 className='text-center'>List Of Employees</h2>
@@ -40,9 +51,9 @@ function ListEmployeeComponent() {
                   <Link 
                   className='border border-solid border-black bg-blue-600 my-2 p-[4px] text-black font-bold rounded-md'
                   to={`/edit-employee/${employee.id}`}> Update </Link>
-                  <Link 
-                  className='border border-solid border-black bg-blue-600 my-2 p-[4px] text-black font-bold rounded-md'
-                  to={`/delete-employee/${employee.id}`}> Delete </Link>
+                  <button
+                  className='border border-solid border-black bg-red-700 ml-[10px] my-2 p-[4px] text-black font-bold rounded-md'
+                 onClick={()=>deleteEmployee(employee.id)}> Delete </button>
                 </td>
               </tr>
             )
