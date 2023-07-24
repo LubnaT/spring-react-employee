@@ -27,7 +27,7 @@ function ListEmployeeComponent() {
       })
     }
   return (
-    <div className='container'>
+    <div className='container mb-[60px]'>
       <h2 className='text-center'>List Of Employees</h2>
       <Link to = "/add-employee" className='border border-solid border-black bg-cyan-600 p-2 text-black font-bold'> Add Employee </Link>
       <table className='table table-bordered table-striped mt-6'>
