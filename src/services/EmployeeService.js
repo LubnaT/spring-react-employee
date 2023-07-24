@@ -5,9 +5,20 @@ import axios from 'axios'
 
 class EmployeeService{
     getAllEmployees(){
-        return axios.get("http://localhost:8080/api/employees/allemployees");
+        return axios.get("http://localhost:8080/api/employees/allemployees")
 }
 
-}
+   createEmployee(employee){
+        return axios.post("http://localhost:8080/api/employees/employee", employee)
+   }
 
+
+     getEmployeeById(id){
+        return axios.get(`http://localhost:8080/api/employees/`+id)
+     }
+
+     updateEmployee(id,employee){
+        return axios.put(`http://localhost:8080/api/employees/`+id,employee)
+     }
+    }
 export default new EmployeeService();

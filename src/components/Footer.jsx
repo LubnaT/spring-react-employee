@@ -4,7 +4,8 @@ function Footer() {
   return (
     <div>
         <footer className="footer">
-            <span className='text-muted'> ALl Rights Reserved 2023 @Java</span>
+          <span className='text-muted'> Alls Rights Reserved 2023 @Lubna Tahreem </span><br/>
+          <span className='text-muted'>Contact US</span>
         </footer>
     </div>
   )
